@@ -20,9 +20,15 @@ let mixArray = []
 let hexArray = []
 let selectedArray = []
 let RGB = []
+
+
 let Slider1 = document.getElementById('4')
 let Slider2 = document.getElementById('5')
 let Slider3 = document.getElementById('6')
+
+Slider1.disabled=true;
+Slider2.disabled=true;
+Slider3.disabled=true;
 let weight = [1, 1, 1]
 document.getElementById('range1').innerHTML = 100 + '%'
 document.getElementById('range2').innerHTML = 100 + '%'
@@ -147,8 +153,11 @@ $('button').on('click', function () {
 
     document.getElementById('range1').innerHTML = 100 + '%' //new code
     Slider1.value = 100
+    Slider1.disabled=true;
+    // document.getElementById("Slider1").disabled = true;
     // document.getElementById('5').style.display = 'none'
     // document.getElementById('range1').style.display = 'none'
+        
     fullOne1 = false
     colorOne1 = ''
     firstRun1++
@@ -156,6 +165,7 @@ $('button').on('click', function () {
     document.getElementById('5').style.background = '#fff'
     document.getElementById('range2').innerHTML = 100 + '%' //new code
     Slider2.value = 100
+    Slider2.disabled=true;
     // document.getElementById('5').style.display = 'none'
     // document.getElementById('range2').style.display = 'none'
     fullTwo1 = false
@@ -164,7 +174,7 @@ $('button').on('click', function () {
   } else if (fullThree1 && colorThree1 == this.value) {
     document.getElementById('6').style.background = '#fff'
     document.getElementById('range3').innerHTML = 100 + '%' //new code
-
+    Slider3.disabled=true;
     Slider3.value = 100
     // document.getElementById('5').style.display = 'none'
     // document.getElementById('range3').style.display = 'none'
@@ -177,12 +187,14 @@ $('button').on('click', function () {
     document.getElementById('4').style.background = this.value
     document.getElementById('range1').innerHTML = 100 + '%' //new code
     Slider2.value = 100
+    Slider1.disabled=false;
     colorOne1 = this.value
     fullOne1 = true
   } else if (!fullTwo1 && colorTwo1 == '') {
     // document.getElementById('5').style.display = 'block'
     // document.getElementById('range2').style.display = 'block'
     document.getElementById('5').style.background = this.value
+    Slider2.disabled=false;
     colorTwo1 = this.value
     fullTwo1 = true
   } else if (!fullThree1 && colorThree1 == '') {
@@ -190,7 +202,7 @@ $('button').on('click', function () {
     // document.getElementById('range3').style.display = 'block'
     document.getElementById('6').style.background = this.value
     document.getElementById('range3').innerHTML = 100 + '%' //new code
-
+    Slider3.disabled=false;
     Slider3.value = 100
     colorThree1 = this.value
     fullThree1 = true
